@@ -1,0 +1,87 @@
+Open Watcom Linker Version 2.0 beta Apr  1 2023 01:02:12 (64-bit)
+Copyright (c) 2002-2023 The Open Watcom Contributors. All Rights Reserved.
+Portions Copyright (c) 1985-2002 Sybase, Inc. All Rights Reserved.
+Created on:       25/06/02 14:07:35
+Executable Image: /home/omri/dev/EmeraldOS/build/boot/stage2/boot.bin
+creating a RAW Binary Image executable
+
+
+                        +------------+
+                        |   Groups   |
+                        +------------+
+
+Group                           Address              Size
+=====                           =======              ====
+
+DGROUP                          00000094             00000016
+
+
+
+                        +--------------+
+                        |   Segments   |
+                        +--------------+
+
+Segment                Class          Group          Address         Size
+=======                =====          =====          =======         ====
+
+_ENTRY                 CODE           AUTO           00000000        00000013
+_TEXT                  CODE           AUTO           00000013        00000080
+CONST                  DATA           DGROUP         00000094        00000016
+CONST2                 DATA           DGROUP         000000aa        00000000
+_DATA                  DATA           DGROUP         000000aa        00000000
+
+
+                        +----------------+
+                        |   Memory Map   |
+                        +----------------+
+
+* = unreferenced symbol
++ = symbol only referenced locally
+
+Address        Symbol
+=======        ======
+
+Module: /home/omri/dev/EmeraldOS/build/boot/stage2/c/main.obj(/home/omri/dev/EmeraldOS/src/boot/stage2/main.c)
+00000013       _cstart_
+Module: /home/omri/dev/EmeraldOS/build/boot/stage2/c/stdio.obj(/home/omri/dev/EmeraldOS/src/boot/stage2/stdio.c)
+00000031+      _putc
+0000004f       _puts
+Module: /home/omri/dev/EmeraldOS/build/boot/stage2/asm/main.obj(main.asm)
+00000000       entry
+Module: /home/omri/dev/EmeraldOS/build/boot/stage2/asm/x86.obj(x86.asm)
+0000007e       _x86_Video_WriteCharTeletype
+
+
+                        +---------------------+
+                        |   Module Segments   |
+                        +---------------------+
+
+! = 32-bit segment
+c = initialized communal data
+
+Module          Segment               Class           Address         Size
+======          =======               =====           =======         ====
+
+/home/omri/dev/EmeraldOS/src/boot/stage2/main.c
+                _TEXT                 CODE           00000013         0000001e
+                CONST                 DATA           00000094         00000016
+                CONST2                DATA           000000aa         00000000
+                _DATA                 DATA           000000aa         00000000
+/home/omri/dev/EmeraldOS/src/boot/stage2/stdio.c
+                _TEXT                 CODE           00000031         0000004d
+                CONST                 DATA           000000aa         00000000
+                CONST2                DATA           000000aa         00000000
+                _DATA                 DATA           000000aa         00000000
+main.asm        _ENTRY                CODE           00000000         00000013
+x86.asm         _TEXT                 CODE           0000007e         00000015
+Warning! W1014: stack segment not found
+
+
+                        +-----------------------+
+                        |   Linker Statistics   |
+                        +-----------------------+
+
+Stack size:  0200 (512.)
+Memory size:  00aa (170.)
+Entry point address: 00000000
+Link time: 00:00.48
