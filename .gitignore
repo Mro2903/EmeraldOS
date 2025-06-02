@@ -1,6 +1,6 @@
 # build directory
-build/
+build
 
 # IDE files
-.idea/
-.vscode/
+.idea
+.vscode
